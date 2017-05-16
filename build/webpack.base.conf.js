@@ -1,4 +1,5 @@
 var path = require('path')
+var merge = require('webpack-merge')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
@@ -39,7 +40,18 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: vueLoaderConfig
+        options: merge(vueLoaderConfig, {
+          preLoaders: {
+            i18n: 'yaml-loader'
+          },
+          loaders: {
+            i18n: '@kazupon/vue-i18n-loader'
+          }
+        })
+      },
+      {
+        test: /\.yml$/,
+        loader: 'json-loader!yaml-loader'
       },
       {
         test: /\.js$/,

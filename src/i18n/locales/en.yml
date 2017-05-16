@@ -1,0 +1,4 @@
+locale: English
+
+globals:
+  heroes: Heroes
