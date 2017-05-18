@@ -4,6 +4,10 @@ import { graph } from '@/graph';
 const allTitles = graph.query(`{
   allTitles {
     name
+    heroes {
+      name
+      username
+    }
   }
 }`);
 

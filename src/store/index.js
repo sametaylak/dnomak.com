@@ -4,6 +4,7 @@ import createPersistedState from 'vuex-persistedstate';
 
 // Module Stores
 import TitlesStore from '@/components/modules/titles/store';
+import HeroesStore from '@/components/modules/heroes/store';
 
 // Global Stores
 import global from './modules/global';
@@ -17,6 +18,7 @@ export default new Vuex.Store({
     i18n,
     // components
     titles: TitlesStore,
+    heroes: HeroesStore,
   },
   plugins: [createPersistedState()],
 });

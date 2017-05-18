@@ -1,8 +1,10 @@
 <template>
   <div>
-    <h1>{{$t("globals.heroes")}}</h1>
-    <div v-for="title in titles">
-      <router-link :to="{ name: 'heroes', params: { heroesTitle: title.name }}">{{title.name}}</router-link>
+    <h1>{{ $route.params.heroesTitle }}</h1>
+    <div v-for="title in titles" v-if="title.name === $route.params.heroesTitle">
+      <div v-for="hero in title.heroes">
+        <router-link :to="{ name: 'hero', params: { heroUsername: hero.username }}">{{hero.name}}</router-link>
+      </div>
     </div>
   </div>
 </template>
