@@ -3,7 +3,8 @@ import { graph } from '@/graph';
 
 const allTitles = graph.query(`{
   allTitles {
-    name
+    url
+    type
     heroes {
       name
       username

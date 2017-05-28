@@ -1,10 +1,9 @@
-<template>
-  <div>
-    <h1>{{$t("globals.heroes")}}</h1>
-    <div v-for="title in titles">
-      <router-link :to="{ name: 'heroes', params: { heroesTitle: title.name }}">{{title.name}}</router-link>
-    </div>
-  </div>
+<template lang="pug">
+  div
+    locale-switcher(:label='$t("locale")')
+    h1 {{ $t("globals.heroes") }}
+    div(v-for='title in titles')
+      router-link(:to='{ name: "heroes", params: { titleUrl: title.url }}') {{ title.type }}
 </template>
 
 <script>

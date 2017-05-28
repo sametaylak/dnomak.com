@@ -7,14 +7,12 @@ import TitlesStore from '@/components/modules/titles/store';
 import HeroesStore from '@/components/modules/heroes/store';
 
 // Global Stores
-import global from './modules/global';
 import i18n from './modules/i18n';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    global,
     i18n,
     // components
     titles: TitlesStore,

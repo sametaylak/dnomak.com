@@ -1,10 +1,8 @@
-<template>
-  <div>
-    <h3>{{label}}</h3>
-    <div v-for='locale in locales' :key='locale'>
-      <a href='#' @click.stop.prevent='set(locale)'>{{$t('locale', locale)}}</a>
-    </div>
-  </div>
+<template lang="pug">
+  div
+    h3 {{ label }}
+    div(v-for='locale in locales', :key='locale')
+      a(href='#', @click.stop.prevent='set(locale)') {{ $t('locale', locale) }}
 </template>
 
 <script>

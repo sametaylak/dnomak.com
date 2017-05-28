@@ -1,9 +1,6 @@
-<template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <locale-switcher :label='$t("locale")'></locale-switcher>
-    <router-view></router-view>
-  </div>
+<template lang="pug">
+  #app
+    router-view
 </template>
 
 <script>
