@@ -21,7 +21,7 @@ export default store({
     titles: state => state.titles,
   },
   actions: {
-    getAllTitles({ commit }) {
+    allTitles({ commit }) {
       return allTitles().then((result) => {
         commit('SET_TITLES', result.allTitles);
         return result;

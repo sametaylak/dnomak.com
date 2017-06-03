@@ -16,11 +16,11 @@
       ]),
     },
     mounted() {
-      this.getAllTitles();
+      this.allTitles();
     },
     methods: {
       ...mapActions('titles', [
-        'getAllTitles',
+        'allTitles',
       ]),
     },
   };
