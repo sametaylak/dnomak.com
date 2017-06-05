@@ -1,6 +1,6 @@
 <template lang="pug">
   div.xl-my40.xl-mx24.xl-tac
-    a.xl-dib.xl-fs32.xl-lh40.xl-mb8.ho-co-red-300.xl-co-black-500(href='https://github.com/dnomak/svg-turkiye-haritasi/', title='SVG Türkiye Haritası')
+    a.xl-dib.xl-fs32.xl-lh40.xl-mb8.ho-co-green-300.xl-co-black-500.xl-fw600(href='https://github.com/dnomak/svg-turkiye-haritasi/', title='SVG Türkiye Haritası')
       | SVG Türkiye Haritası
     .xl-db.xl-fs18.xl-lh40.xl-mb24.xl-co-black-500
       | Bu SVG Türkiye Haritası'nda 
@@ -14,7 +14,7 @@
       |  :)
     .il-isimleri
     .svg-turkiye-haritasi
-      div(v-html='svgTurkeyMap')
+      div(v-html='svgTurkiyeHaritasi')
 </template>
 
 <script>
@@ -23,7 +23,7 @@
   export default {
     data() {
       return {
-        svgTurkeyMap: `
+        svgTurkiyeHaritasi: `
           <svg version="1.1" id="svg-turkiye-haritasi" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1007.478 527.323" xml:space="preserve">
             <g id="turkiye">
               <g id="adana" data-plakakodu="01" data-alankodu="322" data-iladi="Adana">
@@ -292,7 +292,7 @@
       };
     },
     mounted() {
-      this.svgTurkeyMapFunc();
+      this.svgTurkiyeHaritasiFunc();
     },
     methods: {
       /* eslint-disable
@@ -308,7 +308,7 @@
          eqeqeq,
          space-before-blocks,
          comma-spacing */
-      svgTurkeyMapFunc() {
+      svgTurkiyeHaritasiFunc() {
         $('#svg-turkiye-haritasi path').hover(function() {
           if ($(this).parent().attr('id') == 'guney-kibris') return false;
           $('.il-isimleri').html('<div>' + $(this).parent().data('iladi') + '</div>');
@@ -348,7 +348,7 @@
   }
   .il-isimleri div {
     display: inline-block;
-    background: #222;
+    background: #12D469;
     color: #fff;
     padding: 8px 16px;
     -webkit-border-radius: 4px;
@@ -357,9 +357,9 @@
   }
   #svg-turkiye-haritasi path {
     cursor: pointer;
-    fill: #666666;
+    fill: #222;
   }
   #svg-turkiye-haritasi path:hover {
-    fill: #222;
+    fill: #12D469;
   }
 </style>

@@ -4,7 +4,7 @@ import { graph } from '@/graph';
 const allTitles = graph.query(`{
   allTitles {
     url
-    type
+    name
     heroes {
       name
       username
