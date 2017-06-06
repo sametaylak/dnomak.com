@@ -1,8 +1,8 @@
 <template lang="pug">
-  .xl-m40(v-if='heroes.length')
+  .xl-m40.md-m16(v-if='heroes.length')
     .wrap.xl-gutter-24.md-1
       .col.xl-2-3
-        .xl-mb16.xl-tal.xl-p24.xl-co-black-500.xl-br8.xl-ba-white.xl-bw2.xl-bo-gray-200
+        .xl-mb16.xl-tal.xl-co-black-500.xl-br8.xl-ba-white.xl-bw2.xl-bo-gray-200.xl-p24.lg-p16
           .xl-mb8
             .wrap.xl-auto.xl-middle.xl-gutter-8
               .col
@@ -15,8 +15,8 @@
             .embed-responsive.embed-responsive-16by9(v-if='videoLoading')
               .embed-responsive-item
             youtube.xl-br8.embed-responsive.embed-responsive-16by9(v-if='!videoLoading', :video-id='hero.videoId', @ready='ready', :player-vars='{ autoplay: 1, start: questionTime, rel: 0 }')
-      .col.xl-1-3(v-if='times.length')
-        .xl-mb16
+      .col.xl-1-3
+        .xl-mb16(v-if='times.length')
           .xl-bo-gray-200.xl-bwl2.xl-bwr2.xl-bwt2.xl-ba-gray-200.xl-p16.xl-brt8.xl-fw600.xl-fs18
             |{{ $t("globals.questions") }}
           .xl-ba-white.xl-fs14.xl-lh20.xl-brb8.xl-bo-gray-200.xl-bw2.xl-oh
