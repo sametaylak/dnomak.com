@@ -27,11 +27,9 @@ export default store({
     )[0],
   },
   actions: {
-    allHeroes({ commit }) {
-      return allHeroes().then((result) => {
-        commit('SET_HEROES', result.allHeroes);
-        return result;
-      });
+    async allHeroes({ commit }) {
+      const heroes = await allHeroes();
+      commit('SET_HEROES', heroes.allHeroes);
     },
   },
   mutations: {

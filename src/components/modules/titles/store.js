@@ -21,11 +21,9 @@ export default store({
     titles: state => state.titles,
   },
   actions: {
-    allTitles({ commit }) {
-      return allTitles().then((result) => {
-        commit('SET_TITLES', result.allTitles);
-        return result;
-      });
+    async allTitles({ commit }) {
+      const titles = await allTitles();
+      commit('SET_TITLES', titles.allTitles);
     },
   },
   mutations: {

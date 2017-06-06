@@ -2,3 +2,10 @@ locale: English
 
 globals:
   heroes: Heroes
+  questions: Questions
+
+mailchimp:
+  id: 1ddadb165c
+  name: b_0cfb9d416ef45eba73b6368b6_1ddadb165c
+  emailAddress: Email Address
+  subscribe: Subscribe

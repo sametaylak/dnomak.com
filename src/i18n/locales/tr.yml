@@ -2,3 +2,10 @@ locale: Türkçe
 
 globals:
   heroes: Kahramanlar
+  questions: Sorular
+
+mailchimp:
+  id: 76e0132742
+  name: b_0cfb9d416ef45eba73b6368b6_76e0132742
+  emailAddress: Email Adresiniz
+  subscribe: Abone Ol

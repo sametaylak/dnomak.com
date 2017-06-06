@@ -22,11 +22,9 @@ export default store({
     times: state => state.times,
   },
   actions: {
-    allTimes({ commit }, username) {
-      return allTimes({ username }).then((result) => {
-        commit('SET_TIMES', result.allTimes);
-        return result;
-      });
+    async allTimes({ commit }, username) {
+      const times = await allTimes({ username });
+      commit('SET_TIMES', times.allTimes);
     },
   },
   mutations: {

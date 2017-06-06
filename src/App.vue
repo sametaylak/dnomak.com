@@ -13,19 +13,19 @@
         locales,
       };
     },
+    created() {
+      this.$i18n.locale = this.$store.getters['i18n/locale'];
+    },
     watch: {
       locale() {
         this.$i18n.locale = this.locale;
       },
     },
-    methods: {
-      ...mapActions('i18n', ['set']),
-    },
     computed: {
       ...mapGetters('i18n', ['locale']),
     },
-    created() {
-      this.$i18n.locale = this.$store.getters['i18n/locale'];
+    methods: {
+      ...mapActions('i18n', ['set']),
     },
   };
 </script>

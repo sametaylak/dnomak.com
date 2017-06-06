@@ -348,7 +348,7 @@
   }
   .il-isimleri div {
     display: inline-block;
-    background: #12D469;
+    background: #1094F6;
     color: #fff;
     padding: 8px 16px;
     -webkit-border-radius: 4px;
@@ -360,6 +360,6 @@
     fill: #222;
   }
   #svg-turkiye-haritasi path:hover {
-    fill: #12D469;
+    fill: #1094F6;
   }
 </style>

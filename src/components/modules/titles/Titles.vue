@@ -10,10 +10,10 @@
 </template>
 
 <script>
-  import { mapGetters, mapActions } from 'vuex';
+  import { mapActions, mapGetters } from 'vuex';
 
   export default {
-    mounted() {
+    created() {
       this.allTitles();
     },
     computed: {
