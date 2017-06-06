@@ -12,14 +12,14 @@
           div(v-if='hero.title')
             |{{ hero.title }}
           .xl-oh.xl-br8.xl-lh0.xl-mt24
-            youtube(:video-id='hero.videoId')
+            youtube(v-if='!videoLoading', :video-id='hero.videoId', @ready='ready', :player-vars='{ autoplay: 1, start: questionTime }')
       .col.xl-1-3(v-if='times.length')
         .xl-bo-gray-200.xl-bwl2.xl-bwr2.xl-bwt2.xl-ba-gray-200.xl-p16.xl-brt8.xl-fw600.xl-fs18
           |Sorular
         .xl-ba-white.xl-fs14.xl-lh20.xl-brb8.xl-bo-gray-200.xl-bw2.xl-oh
           .xl-ba-gray-100
             span(v-for='time in times')
-              a.xl-db.xl-py8.xl-px16.ho-ba-gray-100.ho-co-black-500.ho-bo-gray-200.xl-ba-white.xl-co-black-500.xl-bwt1.xl-bo-gray-200(href='#')
+              a.xl-db.xl-py8.xl-px16.ho-ba-gray-100.ho-co-black-500.ho-bo-gray-200.xl-ba-white.xl-co-black-500.xl-bwt1.xl-bo-gray-200(href='#' @click.stop.prevent='change(time.second)')
                 |{{ time.question.name }}
 </template>
 
@@ -30,6 +30,9 @@
     data() {
       return {
         hero: [],
+        questionTime: 0,
+        player: null,
+        videoLoading: false,
       };
     },
     created() {
@@ -52,6 +55,16 @@
       ...mapActions('heroes', [
         'allHeroes',
       ]),
+      ready(player) {
+        this.player = player;
+      },
+      change(questionTime) {
+        this.videoLoading = true;
+        setTimeout(() => {
+          this.videoLoading = false;
+          this.questionTime = parseInt(questionTime, 10);
+        }, 1);
+      },
     },
   };
 </script>
