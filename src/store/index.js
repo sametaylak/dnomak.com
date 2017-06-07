@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 import createPersistedState from 'vuex-persistedstate';
 
 // Module Stores
-import TitlesStore from '@/components/modules/titles/store';
+import TagsStore from '@/components/modules/tags/store';
 import HeroesStore from '@/components/modules/heroes/store';
 import TimesStore from '@/components/modules/times/store';
 
@@ -16,7 +16,7 @@ export default new Vuex.Store({
   modules: {
     i18n,
     // components
-    titles: TitlesStore,
+    tags: TagsStore,
     heroes: HeroesStore,
     times: TimesStore,
   },

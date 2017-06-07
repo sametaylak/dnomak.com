@@ -3,13 +3,13 @@
     .wrap.xl-gutter-24.md-1
       .col.xl-2-3
         .xl-mb16.xl-tal.xl-co-black-500.xl-br8.xl-ba-white.xl-bw2.xl-bo-gray-200.xl-p24.lg-p16
-          .xl-mb8
+          .xl-mb8.xl-h40
             .wrap.xl-auto.xl-middle.xl-gutter-8
               .col
-                .xl-dib.xl-fs28.xl-lh40.xl-fw600 {{ hero.name }}
-              .col(v-for='title in hero.titles')
-                .xl-dib.xl-ba-black-500.xl-co-white.xl-py4.xl-px8.xl-br4.xl-ffscp.xl-fs14 {{ title.url }}
-          div(v-if='hero.title')
+                .xl-dib.xl-fs28.xl-fw600.xl-lh40 {{ hero.name }}
+              .col(v-for='tag in hero.tags')
+                .xl-dib.xl-ba-black-500.xl-co-white.xl-py4.xl-px8.xl-br4.xl-ffscp.xl-fs14 {{ tag.name }}
+          div.xl-h24.xl-lh24(v-if='hero.title')
             |{{ hero.title }}
           .xl-oh.xl-br8.xl-lh0.xl-mt24
             .embed-responsive.embed-responsive-16by9(v-if='videoLoading')

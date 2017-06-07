@@ -1,12 +1,12 @@
 import { store } from '@/components/global/mixins';
 import { graph } from '@/graph';
 
-const allTitles = graph.query(`{
-  allTitles {
-    url
+const allTags = graph.query(`{
+  allTags {
     name
     heroes {
       name
+      title
       username
     }
   }
@@ -15,20 +15,20 @@ const allTitles = graph.query(`{
 /* eslint-disable no-param-reassign */
 export default store({
   state: {
-    titles: [],
+    tags: [],
   },
   getters: {
-    titles: state => state.titles,
+    tags: state => state.tags,
   },
   actions: {
-    async allTitles({ commit }) {
-      const titles = await allTitles();
-      commit('SET_TITLES', titles.allTitles);
+    async allTags({ commit }) {
+      const tags = await allTags();
+      commit('SET_TAGS', tags.allTags);
     },
   },
   mutations: {
-    SET_TITLES(state, result) {
-      state.titles = result;
+    SET_TAGS(state, result) {
+      state.tags = result;
     },
   },
 });

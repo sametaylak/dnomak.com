@@ -8,9 +8,8 @@ const allHeroes = graph.query(`{
     title
     username
     videoId
-    titles {
+    tags {
       name
-      url
     }
   }
 }`);

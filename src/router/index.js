@@ -5,7 +5,7 @@ import Index from '@/components/modules/Index';
 import SvgTurkiyeHaritasi from '@/components/modules/SvgTurkiyeHaritasi';
 import NotFound from '@/components/modules/NotFound';
 
-import Titles from '@/components/modules/titles/Titles';
+import Tags from '@/components/modules/tags/Tags';
 import Hero from '@/components/modules/heroes/Hero';
 
 Vue.use(Router);
@@ -24,9 +24,9 @@ export default new Router({
       component: SvgTurkiyeHaritasi,
     },
     {
-      path: '/youtube',
-      name: 'Titles',
-      component: Titles,
+      path: '/heroes',
+      name: 'Tags',
+      component: Tags,
     },
     {
       path: '/:heroUsername',
