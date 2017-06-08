@@ -1,5 +1,6 @@
 import { store } from '@/components/global/mixins';
 import { graph } from '@/graph';
+import { sortBy } from 'lodash';
 
 const allTimes = graph.query(`($username: String!) {
   allTimes(filter: {hero: {username: $username}}) {
@@ -19,7 +20,7 @@ export default store({
     times: [],
   },
   getters: {
-    times: state => state.times,
+    times: state => sortBy(state.times, ['second']),
   },
   actions: {
     async allTimes({ commit }, username) {
