@@ -1,8 +1,8 @@
 <template lang="pug">
   div
     c-header
-    .container
-      .xl-m24.md-m16(v-if='heroes.length || hero')
+    .xl-m24.md-m16(v-if='heroes.length || hero')
+      .container
         .wrap.xl-gutter-24.md-1
           .col.xl-2-3
             .xl-mb16.xl-tal.xl-co-black-500.xl-br8.xl-ba-white.xl-bw2.xl-bo-gray-200.xl-p24.lg-p16

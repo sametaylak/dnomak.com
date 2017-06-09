@@ -1,8 +1,7 @@
 <template lang="pug">
   div
-    h3 {{ label }}
-    div(v-for='locale in locales', :key='locale')
-      a(href='#', @click.stop.prevent='set(locale)') {{ $t('locale', locale) }}
+    .xl-cp.xl-ffscp.xl-vam.xl-px8.xl-px8.xl-m8.xl-dib.xl-fs14.xl-lh24.xl-fw400.xl-br4.xl-ba-black-300.xl-co-gray-500(v-for='locale in locales', :key='locale', @click.stop.prevent='set(locale)')
+      | {{ $t('locale', locale) }}
 </template>
 
 <script>
