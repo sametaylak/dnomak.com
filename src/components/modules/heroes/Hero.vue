@@ -10,7 +10,7 @@
                 .col.sm-hidden(v-if='hero.username')
                   .avatar--hero.xl-br8(:style="{ 'background-image': 'url(/static/img/heroes/' + hero.username + '.jpg)' }")
                 .col
-                  .xl-mb8
+                  .xl-mb4
                     .wrap.xl-auto.xl-middle.xl-gutter-8
                       .col
                         .xl-dib.xl-fs28.xl-fw600.xl-lh40 {{ hero.name }}
