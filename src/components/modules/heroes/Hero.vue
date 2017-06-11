@@ -27,7 +27,7 @@
             .xl-p16.xl-bo-gray-200.xl-ba-white.xl-bw2.xl-br8
               #disqus_thread
           .col.xl-1-3
-            a.xl-db.xl-ba-yellow-100.xl-bo-yellow-300.xl-p8.xl-bw1.xl-br8.xl-fs14.xl-mb16.xl-tac.xl-co-yellow-500.xl-cp.xl-lh24(href='//patreon.com/dnomak' target='_blank')
+            a.xl-db.xl-ba-yellow-100.xl-bo-yellow-300.xl-p8.xl-bw1.xl-br4.xl-fs14.xl-mb16.xl-tac.xl-co-yellow-500.xl-cp.xl-lh24(href='//patreon.com/dnomak' target='_blank')
               | Bize <strong>kahve</strong> ısmarlayarak destek olabilirsiniz.
             .xl-mb16(v-if='times.length')
               .xl-bo-gray-200.xl-bwl2.xl-bwr2.xl-bwt2.xl-ba-gray-200.xl-p16.xl-brt8.xl-fw600.xl-fs18
@@ -46,6 +46,9 @@
                   div(v-html='graphCoolIcon')
                 .col
                   .graphcool-green.xl-fw600.xl-ls1.xl-fs20.xl-lh24 GRAPHCOOL
+            .xl-tac
+              a.xl-ffscp.xl-fs14.xl-tac.xl-co-gray-500.xl-my24.xl-dib(href='https://github.com/dnomak/dnomak.com', target='_blank')
+                | Projeye katkıda bulunun!
 
 </template>
 
