@@ -1,5 +1,5 @@
 <template lang="pug">
-  form.wrap(:action='`//flexible.us8.list-manage.com/subscribe/post?u=0cfb9d416ef45eba73b6368b6&id=${$t("mailchimp.id")}`', method='post', name='mc-embedded-subscribe-form', target='_blank')
+  form.wrap.xl-mb16(:action='`//flexible.us8.list-manage.com/subscribe/post?u=0cfb9d416ef45eba73b6368b6&id=${$t("mailchimp.id")}`', method='post', name='mc-embedded-subscribe-form', target='_blank')
     .col.xl-7-12
       input(type='email', name='email', :placeholder='$t("mailchimp.emailAddress")', class='xl-1-1 xl-db xl-h56 xl-ba-white xl-bw2 xl-bo-green-300 xl-brl8 xl-brr0 xl-ffscp xl-pl16 lg-pl8 md-pl16 pl-co-gray-500')
       div(style='position: absolute; left: -5000px;')

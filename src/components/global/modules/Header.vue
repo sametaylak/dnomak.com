@@ -1,7 +1,7 @@
 <template lang="pug">
   .xl-ba-black-500.xl-co-white
     .xl-tal.xl-py8.xl-px24
-      .container
+      .container.xl-py4
         .wrap.xl-middle.md-1.md-my8
           .col.xl-9-12.lg-5-7
             .wrap.xl-gutter-8.xl-middle.xl-auto.md-1.md-center

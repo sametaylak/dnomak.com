@@ -3,6 +3,7 @@ locale: Türkçe
 globals:
   heroes: Kahramanlar
   questions: Sorular
+  dataSponsor: Veri Sponsoru
 
 mailchimp:
   id: 76e0132742

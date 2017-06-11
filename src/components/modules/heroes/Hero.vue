@@ -6,10 +6,12 @@
         .wrap.xl-gutter-24.md-1
           .col.xl-2-3
             .xl-mb16.xl-tal.xl-co-black-500.xl-br8.xl-ba-white.xl-bw2.xl-bo-gray-200.xl-p24.lg-p16
-              .wrap.xl-auto.xl-gutter-16.xl-middle
+              .wrap.xl-auto.xl-gutter-16.xl-middle.xl-pr
                 .col.sm-hidden(v-if='hero.username')
                   .avatar--hero.xl-br8(:style="{ 'background-image': 'url(/static/img/heroes/' + hero.username + '.jpg)' }")
                 .col
+                  .youtube
+                    .g-ytsubscribe(data-channelid='UCbu25feEIe6fY9fZx8BCMSA' data-layout='default' data-count='default')
                   .xl-mb4
                     .wrap.xl-auto.xl-middle.xl-gutter-8
                       .col
@@ -22,7 +24,11 @@
                 .embed-responsive.embed-responsive-16by9(v-if='videoLoading')
                   .embed-responsive-item
                 youtube.xl-br8.embed-responsive.embed-responsive-16by9(v-if='!videoLoading', :video-id='hero.videoId', @ready='ready', :player-vars='{ autoplay: 1, start: questionTime, rel: 0 }')
+            .xl-p16.xl-bo-gray-200.xl-ba-white.xl-bw2.xl-br8
+              #disqus_thread
           .col.xl-1-3
+            a.xl-db.xl-ba-yellow-100.xl-bo-yellow-300.xl-p8.xl-bw1.xl-br8.xl-fs14.xl-mb16.xl-tac.xl-co-yellow-500.xl-cp.xl-lh24(href='//patreon.com/dnomak' target='_blank')
+              | Bize <strong>kahve</strong> ısmarlayarak destek olabilirsiniz.
             .xl-mb16(v-if='times.length')
               .xl-bo-gray-200.xl-bwl2.xl-bwr2.xl-bwt2.xl-ba-gray-200.xl-p16.xl-brt8.xl-fw600.xl-fs18
                 |{{ $t("globals.questions") }}
@@ -32,6 +38,15 @@
                     a.xl-db.xl-py8.xl-px16.ho-ba-gray-100.ho-co-black-500.ho-bo-gray-200.xl-ba-white.xl-co-black-500.xl-bwt1.xl-bo-gray-200.xl-cp(@click.stop.prevent='changeQuestionTime(time.second)', :class="{'active': time.second === questionTime}")
                       |{{ time.question.name }}
             subscribe-form
+            a.xl-p16.xl-br8.xl-ba-black-500.xl-bw2.xl-bo-black-500.xl-cp.xl-db(href='//graph.cool', target='_blank')
+              .wrap.xl-auto.xl-center.xl-middle.xl-gutter-16
+                .col
+                  .xl-co-black-100.xl-ls1.xl-fs16.xl-lh24.xl-fw600 {{ $t("globals.dataSponsor") }}
+                .col.xl-lh0
+                  div(v-html='graphCoolIcon')
+                .col
+                  .graphcool-green.xl-fw600.xl-ls1.xl-fs20.xl-lh24 GRAPHCOOL
+
 </template>
 
 <script>
@@ -44,11 +59,18 @@
         questionTime: 0,
         player: null,
         videoLoading: false,
+        graphCoolIcon: `
+          <svg stroke="none" fill="rgba(39,174,96,1)" style="width: 40px; height: 46px;" xmlns="http://www.w3.org/2000/svg" width="18" height="21" viewBox="66 46 18 21"><path d="M82.18 53.28c-.92-.52-2.07.16-2.26.27l-3.96 2.26a1.53 1.53 0 0 0-1.98.05 1.57 1.57 0 0 0-.31 1.97c.38.65 1.17.93 1.87.66.7-.26 1.11-.99.98-1.73l3.95-2.26.02-.01c.26-.16.86-.41 1.14-.25.2.12.32.5.33 1.07v4.99c0 .47-.25.9-.65 1.13l-5.68 3.3c-.4.23-.89.23-1.3 0l-5.67-3.3c-.4-.24-.65-.66-.65-1.13v-6.61c0-.47.25-.9.65-1.13l5.14-2.99c.49.57 1.31.7 1.95.32.64-.38.92-1.17.67-1.87-.25-.71-.97-1.12-1.7-1-.73.12-1.28.76-1.29 1.51l-5.3 3.08c-.74.43-1.2 1.22-1.2 2.08v6.6c0 .86.46 1.65 1.2 2.08l5.68 3.3c.74.43 1.65.43 2.39 0l5.68-3.3c.74-.43 1.19-1.22 1.2-2.08v-4.8c.01-1.12-.29-1.86-.9-2.21z"></path></svg>
+        `,
       };
     },
     created() {
       this.allHeroes();
       this.allTimes(this.$route.params.heroUsername);
+    },
+    mounted() {
+      this.includeJs('https://apis.google.com/js/platform.js');
+      this.installDisqus();
     },
     watch: {
       heroes() {
@@ -71,6 +93,27 @@
       ...mapActions('times', [
         'allTimes',
       ]),
+      /* eslint-disable
+         func-names,
+         wrap-iife,
+         space-before-function-paren,
+         one-var,
+         one-var-declaration-per-line */
+      installDisqus() {
+        (function() { // DON'T EDIT BELOW THIS LINE
+          const d = document, s = d.createElement('script');
+          s.src = 'https://dnomak-com.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+        this.includeJs('//dnomak-com.disqus.com/count.js');
+      },
+      includeJs(jsFilePath) {
+        const js = document.createElement('script');
+        js.type = 'text/javascript';
+        js.src = jsFilePath;
+        document.body.appendChild(js);
+      },
       ready(player) {
         this.player = player;
       },
@@ -124,5 +167,13 @@
   .active:hover {
     background-color: #1094F6;
     color: #FFFFFF;
-  } 
+  }
+  .graphcool-green {
+    color: #27ae60;
+  }
+  .youtube {
+    position: absolute;
+    right: 8px;
+    bottom: 0;
+  }
 </style>

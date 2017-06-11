@@ -3,6 +3,7 @@ locale: English
 globals:
   heroes: Heroes
   questions: Questions
+  dataSponsor: Data Sponsor
 
 mailchimp:
   id: 1ddadb165c
