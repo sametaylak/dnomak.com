@@ -64,10 +64,10 @@
     bottom: 0;
     width: 100%;
     height: 24px;
-    background: -moz-linear-gradient(top, rgba(125,185,232,0) 0%, rgba(245,245,245,1) 100%);
-    background: -webkit-linear-gradient(top, rgba(125,185,232,0) 0%,rgba(245,245,245,1) 100%);
-    background: linear-gradient(to bottom, rgba(125,185,232,0) 0%,rgba(245,245,245,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#f5f5f5',GradientType=0 );
+    background: -moz-linear-gradient(top, rgba(245,245,245,0) 0%, rgba(245,245,245,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(245,245,245,0) 0%,rgba(245,245,245,1) 100%);
+    background: linear-gradient(to bottom, rgba(245,245,245,0) 0%,rgba(245,245,245,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f5f5f5', endColorstr='#f5f5f5',GradientType=0 );
   }
   .developer {
     background: #1094F6;
