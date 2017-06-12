@@ -3,7 +3,9 @@ locale: Türkçe
 globals:
   heroes: Kahramanlar
   questions: Sorular
-  dataSponsor: Sponsored by
+  dataSponsor: Runs on
+  contribute: Projeye katkıda bulunun!
+  coffee: "Bize <strong>kahve</strong> ısmarlayarak destek olabilirsiniz."
 
 mailchimp:
   id: 76e0132742

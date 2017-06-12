@@ -3,7 +3,9 @@ locale: English
 globals:
   heroes: Heroes
   questions: Questions
-  dataSponsor: Sponsored by
+  dataSponsor: Runs on
+  contribute: Contribute to the project!
+  coffee: "You can support us by buying us a cup of <strong>coffee</strong>."
 
 mailchimp:
   id: 1ddadb165c

@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     c-header
-    .xl-m24.md-m16(v-if='heroes.length || hero')
+    .xl-mt24.xl-mx16(v-if='heroes.length || hero')
       .container
         .wrap.xl-gutter-24.md-1
           .col.xl-2-3
@@ -24,32 +24,31 @@
                 .embed-responsive.embed-responsive-16by9(v-if='videoLoading')
                   .embed-responsive-item
                 youtube.xl-br8.embed-responsive.embed-responsive-16by9(v-if='!videoLoading', :video-id='hero.videoId', @ready='ready', :player-vars='{ autoplay: 1, start: questionTime, rel: 0 }')
-            .xl-p16.xl-bo-gray-200.xl-ba-white.xl-bw2.xl-br8
+            .xl-p16.xl-bo-gray-200.xl-ba-white.xl-bw2.xl-br8.xl-mb24.md-mb16
               #disqus_thread
           .col.xl-1-3
-            a.xl-db.xl-ba-yellow-100.xl-bo-yellow-300.xl-p8.xl-bw1.xl-br4.xl-fs14.xl-mb16.xl-tac.xl-co-yellow-500.xl-cp.xl-lh24(href='//patreon.com/dnomak' target='_blank')
-              | Bize <strong>kahve</strong> ısmarlayarak destek olabilirsiniz.
+            a.xl-db.xl-ba-yellow-100.xl-bo-yellow-300.xl-p8.xl-bw2.xl-br8.xl-fs14.xl-mb16.xl-tac.xl-co-black-500.xl-cp.xl-lh24(href='//patreon.com/dnomak' target='_blank')
+              span(v-html='$t("globals.coffee")')
             .xl-mb16(v-if='times.length')
               .xl-bo-gray-200.xl-bwl2.xl-bwr2.xl-bwt2.xl-ba-gray-200.xl-p16.xl-brt8.xl-fw600.xl-fs18
-                |{{ $t("globals.questions") }}
+                | {{ $t("globals.questions") }}
               .xl-ba-white.xl-fs14.xl-lh20.xl-brb8.xl-bo-gray-200.xl-bw2.xl-oh
                 .xl-ba-gray-100
                   span(v-for='time in times')
                     a.xl-db.xl-py8.xl-px16.ho-ba-gray-100.ho-co-black-500.ho-bo-gray-200.xl-ba-white.xl-co-black-500.xl-bwt1.xl-bo-gray-200.xl-cp(@click.stop.prevent='changeQuestionTime(time.second)', :class="{'active': time.second === questionTime}")
                       |{{ time.question.name }}
             subscribe-form
-            a.xl-p16.xl-br8.xl-ba-black-500.xl-bw2.xl-bo-black-500.xl-cp.xl-db(href='//graph.cool', target='_blank')
+            a.xl-p16.xl-br8.xl-ba-black-500.xl-bw2.xl-bo-black-500.xl-cp.xl-db(href='https://graph.cool', target='_blank')
               .wrap.xl-auto.xl-center.xl-middle.xl-gutter-16
                 .col
                   .xl-co-black-100.xl-ls1.xl-fs16.xl-lh24.xl-fw600 {{ $t("globals.dataSponsor") }}
                 .col.xl-lh0
                   div(v-html='graphCoolIcon')
                 .col
-                  .graphcool-green.xl-fw600.xl-ls1.xl-fs20.xl-lh24 GRAPHCOOL
+                  .graphcool-color.xl-fw600.xl-ls1.xl-fs20.xl-lh24 GRAPHCOOL
             .xl-tac
               a.xl-ffscp.xl-fs14.xl-tac.xl-co-gray-500.xl-my24.xl-dib(href='https://github.com/dnomak/dnomak.com', target='_blank')
-                | Projeye katkıda bulunun!
-
+                | {{ $t("globals.contribute") }}
 </template>
 
 <script>
@@ -171,7 +170,7 @@
     background-color: #1094F6;
     color: #FFFFFF;
   }
-  .graphcool-green {
+  .graphcool-color {
     color: #27ae60;
   }
   .youtube {

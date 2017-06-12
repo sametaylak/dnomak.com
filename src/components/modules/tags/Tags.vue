@@ -1,12 +1,12 @@
 <template lang="pug">
   div
     c-header
-    .xl-px16
+    .xl-px16.xl-mt24
       .container
         .wrap.xl-3.xl-left.xl-gutter-16.lg-2.md-1.md-gutter
           .col(v-for='tag in tags')
-            .xl-ffscp.xl-mt24.xl-mb16.xl-fs24.xl-dib.xl-py8.xl-px16.xl-br8(:class='tag.name') {{ tag.name }}
-            .xl-pr
+            .xl-ffscp.xl-mb16.xl-fs24.xl-dib.xl-py8.xl-px16.xl-br8(:class='tag.name') {{ tag.name }}
+            .xl-pr.xl-mb8
               .shadow
               .scroll
                 div(v-for='hero in tag.heroes')
