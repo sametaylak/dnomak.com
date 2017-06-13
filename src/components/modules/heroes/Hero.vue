@@ -24,7 +24,7 @@
                 .embed-responsive.embed-responsive-16by9(v-if='videoLoading')
                   .embed-responsive-item
                 youtube.xl-br8.embed-responsive.embed-responsive-16by9(v-if='!videoLoading', :video-id='hero.videoId', @ready='ready', :player-vars='{ autoplay: 1, start: questionTime, rel: 0 }')
-                .wrap.xl-auto.xl-left.xl-gutter-8.xl-middle.xl-pt24.xl-ffscp.xl-lh20
+                .wrap.xl-auto.xl-left.xl-gutter-8.xl-middle.xl-pt24.xl-ffscp.xl-lh20(v-if='links.length')
                   .col.xl-co-gray-500.xl-fs14
                     | {{ $t("globals.socialMedia") }}:
                   .col(v-for='link in links')
