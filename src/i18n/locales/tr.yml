@@ -1,3 +1,4 @@
+lang: tr
 locale: Türkçe
 
 globals:
@@ -6,6 +7,8 @@ globals:
   dataSponsor: Runs on
   contribute: Projeye katkıda bulunun!
   coffee: "Bize <strong>kahve</strong> ısmarlayarak destek olabilirsiniz."
+  dnomaksStory: dnomak'ın Hikayesi
+  socialMedia: Sosyal Medya
 
 mailchimp:
   id: 76e0132742

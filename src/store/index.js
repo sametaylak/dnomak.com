@@ -6,6 +6,7 @@ import createPersistedState from 'vuex-persistedstate';
 import TagsStore from '@/components/modules/tags/store';
 import HeroesStore from '@/components/modules/heroes/store';
 import TimesStore from '@/components/modules/times/store';
+import LinksStore from '@/components/modules/links/store';
 
 // Global Stores
 import i18n from './modules/i18n';
@@ -19,6 +20,7 @@ export default new Vuex.Store({
     tags: TagsStore,
     heroes: HeroesStore,
     times: TimesStore,
+    links: LinksStore,
   },
   plugins: [createPersistedState()],
 });

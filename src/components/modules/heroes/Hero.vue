@@ -24,8 +24,14 @@
                 .embed-responsive.embed-responsive-16by9(v-if='videoLoading')
                   .embed-responsive-item
                 youtube.xl-br8.embed-responsive.embed-responsive-16by9(v-if='!videoLoading', :video-id='hero.videoId', @ready='ready', :player-vars='{ autoplay: 1, start: questionTime, rel: 0 }')
-            .xl-p16.xl-bo-gray-200.xl-ba-white.xl-bw2.xl-br8.xl-mb24.md-mb16
+                .wrap.xl-auto.xl-left.xl-gutter-8.xl-middle.xl-pt24.xl-ffscp.xl-lh20
+                  .col.xl-co-gray-500.xl-fs14
+                    | {{ $t("globals.socialMedia") }}:
+                  .col(v-for='link in links')
+                    a.xl-dib.xl-co-black-500.ho-co-black-500.xl-fs14.xl-tdu(:href='`${link.socialMedia.baseUrl}${link.username}`', target='_blank') {{ link.socialMedia.name }}
+            .xl-p16.xl-bo-gray-200.xl-ba-white.xl-bw2.xl-br8
               #disqus_thread
+            c-footer
           .col.xl-1-3
             a.xl-db.xl-ba-yellow-100.xl-bo-yellow-300.xl-p8.xl-bw2.xl-br8.xl-fs14.xl-mb16.xl-tac.xl-co-black-500.xl-cp.xl-lh24(href='//patreon.com/dnomak' target='_blank')
               span(v-html='$t("globals.coffee")')
@@ -36,7 +42,8 @@
                 .xl-ba-gray-100
                   span(v-for='time in times')
                     a.xl-db.xl-py8.xl-px16.ho-ba-gray-100.ho-co-black-500.ho-bo-gray-200.xl-ba-white.xl-co-black-500.xl-bwt1.xl-bo-gray-200.xl-cp(@click.stop.prevent='changeQuestionTime(time.second)', :class="{'active': time.second === questionTime}")
-                      |{{ time.question.name }}
+                      span.xl-1-1.xl-db.xl-wsnw.xl-oh.xl-toe(v-if='$t("lang") === "tr"') {{ time.question.name }}
+                      span.xl-1-1.xl-db.xl-wsnw.xl-oh.xl-toe(v-if='$t("lang") === "en"') {{ time.question.nameEnglish }}
             subscribe-form
             a.xl-p16.xl-br8.xl-ba-black-500.xl-bw2.xl-bo-black-500.xl-cp.xl-db(href='https://graph.cool', target='_blank')
               .wrap.xl-auto.xl-center.xl-middle.xl-gutter-16
@@ -47,7 +54,7 @@
                 .col
                   .graphcool-color.xl-fw600.xl-ls1.xl-fs20.xl-lh24 GRAPHCOOL
             .xl-tac
-              a.xl-ffscp.xl-fs14.xl-tac.xl-co-gray-500.xl-my24.xl-dib(href='https://github.com/dnomak/dnomak.com', target='_blank')
+              a.xl-ffscp.xl-fs14.xl-tac.xl-co-gray-500.xl-my24.xl-dib.xl-lh24(href='https://github.com/dnomak/dnomak.com', target='_blank')
                 | {{ $t("globals.contribute") }}
 </template>
 
@@ -66,9 +73,28 @@
         `,
       };
     },
+    // head: {
+    //   // <!-- Open Graph data -->
+    //   // <meta property="og:title" content="Title Here" />
+    //   // <meta property="og:type" content="article" />
+    //   // <meta property="og:url" content="http://www.example.com/" />
+    //   // <meta property="og:image" content="http://example.com/image.jpg" />
+    //   // <meta property="og:description" content="Description Here" />
+    //   title: function () {
+    //     return {
+    //       inner: this.hero.name
+    //     }
+    //   },
+    //   meta: [
+    //     { name: 'description', content: this.hero.title, id: 'desc' },
+    //     { property: 'og:title', content: this.hero.name },
+    //     { property: 'og:description', content: this.hero.title }
+    //   ]
+    // },
     created() {
       this.allHeroes();
       this.allTimes(this.$route.params.heroUsername);
+      this.allLinks(this.$route.params.heroUsername);
     },
     mounted() {
       this.includeJs('https://apis.google.com/js/platform.js');
@@ -87,6 +113,9 @@
       ...mapGetters('times', [
         'times',
       ]),
+      ...mapGetters('links', [
+        'links',
+      ]),
     },
     methods: {
       ...mapActions('heroes', [
@@ -94,6 +123,9 @@
       ]),
       ...mapActions('times', [
         'allTimes',
+      ]),
+      ...mapActions('links', [
+        'allLinks',
       ]),
       /* eslint-disable
          func-names,

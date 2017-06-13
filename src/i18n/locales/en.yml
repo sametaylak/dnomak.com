@@ -1,3 +1,4 @@
+lang: en
 locale: English
 
 globals:
@@ -6,6 +7,8 @@ globals:
   dataSponsor: Runs on
   contribute: Contribute to the project!
   coffee: "You can support us by buying us a cup of <strong>coffee</strong>."
+  dnomaksStory: dnomak's Story
+  socialMedia: Social Media
 
 mailchimp:
   id: 1ddadb165c
