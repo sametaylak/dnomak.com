@@ -33,7 +33,7 @@
               #disqus_thread
             c-footer
           .col.xl-1-3
-            a.xl-db.xl-ba-yellow-100.xl-bo-yellow-300.xl-p8.xl-bw2.xl-br8.xl-fs14.xl-mb16.xl-tac.xl-co-black-500.xl-cp.xl-lh24(href='//patreon.com/dnomak' target='_blank')
+            a.xl-db.xl-p8.xl-br8.xl-fs14.xl-mb16.xl-tac.xl-bo-purple-300.xl-bw2.xl-co-white.xl-ba-purple-300.xl-cp.xl-lh24(href='//patreon.com/dnomak' target='_blank')
               span(v-html='$t("globals.coffee")')
             .xl-mb16(v-if='times.length')
               .xl-bo-gray-200.xl-bwl2.xl-bwr2.xl-bwt2.xl-ba-gray-200.xl-p16.xl-brt8.xl-fw600.xl-fs18

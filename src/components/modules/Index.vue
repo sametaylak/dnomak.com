@@ -10,6 +10,14 @@
       a.xl-dib.xl-fs18.xl-fw600.xl-lh24.xl-co-black-500.ho-co-blue-300(href='http://flexible.gs', title='Flexible Grid System')
         | I Love 
         .xl-dib.xl-fw400 Flexible Grid System
+      div
+        router-link.xl-dib.xl-mt40.xl-py16.xl-px40.xl-bo-gray-200.xl-bw2.xl-ba-white.xl-ls1.xl-co-white.xl-br8.xl-fw600.xl-fs24(to='heroes', title='Heroes')
+          .xl-dib.xl-co-red-300 H
+          .xl-dib.xl-co-green-300 e
+          .xl-dib.xl-co-blue-300 r
+          .xl-dib.xl-co-purple-300 o
+          .xl-dib.xl-co-yellow-300 e
+          .xl-dib.xl-co-blue-300 s
     .wrap.xl-auto.xl-center.xl-gutter-16.xl-ffscp.xl-pt40.xl-lh40
       .col
         a.xl-dib.xl-co-black-100.ho-co-blue-300(href='https://github.com/dnomak/', title='GitHub') GitHub
