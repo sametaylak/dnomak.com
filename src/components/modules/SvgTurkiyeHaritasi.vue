@@ -18,7 +18,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 export default {
   data() {
     return {
@@ -307,36 +306,37 @@ export default {
        eqeqeq,
        space-before-blocks,
        comma-spacing */
+    /* eslint dot-notation: ["error", { "allowPattern": "^[a-z]+$" }]*/
     svgTurkiyeHaritasiFunc() {
       const element = document.querySelector('#svg-turkiye-haritasi');
       const info = document.querySelector('.il-isimleri');
 
       element.addEventListener(
         'mouseover',
-        function (event) {
+        (event) => {
           if (event.target.tagName === 'path') {
             info.innerHTML = [
               '<div>',
               event.target.parentNode.dataset['iladi'],
-              '</div>'
+              '</div>',
             ].join('');
           }
-        }
+        },
       );
 
       element.addEventListener(
         'mousemove',
-        function (event) {
+        (event) => {
           info.style.top = event.pageY + 25 + 'px';
           info.style.left = event.pageX + 'px';
-        }
+        },
       );
 
       element.addEventListener(
         'mouseout',
-        function (event) {
+        (event) => {
           info.innerHTML = '';
-        }
+        },
       );
 
       element.addEventListener(
@@ -359,7 +359,7 @@ export default {
               + parent.dataset['plakakodu']
             );
           }
-        }
+        },
       );
     },
   },
