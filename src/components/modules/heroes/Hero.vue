@@ -45,7 +45,7 @@
                       span.xl-1-1.xl-db.xl-wsnw.xl-oh.xl-toe(v-if='$t("lang") === "tr"') {{ time.question.name }}
                       span.xl-1-1.xl-db.xl-wsnw.xl-oh.xl-toe(v-if='$t("lang") === "en"') {{ time.question.nameEnglish }}
             subscribe-form
-            a.xl-p16.xl-br8.xl-ba-black-500.xl-bw2.xl-bo-black-500.xl-cp.xl-db(href='https://graph.cool', target='_blank')
+            a.xl-p16.xl-br8.xl-ba-black-500.xl-bw2.xl-bo-black-500.xl-cp.xl-db(href='https://www.graph.cool/?utm_medium=partner&utm_source=dnomak.com', target='_blank')
               .wrap.xl-auto.xl-center.xl-middle.xl-gutter-16
                 .col
                   .xl-co-black-100.xl-ls1.xl-fs16.xl-lh24.xl-fw600 {{ $t("globals.dataSponsor") }}
