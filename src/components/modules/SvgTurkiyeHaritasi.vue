@@ -3,13 +3,13 @@
     a.xl-dib.xl-fs32.xl-lh40.xl-mb8.ho-co-green-300.xl-co-black-500.xl-fw600(href='https://github.com/dnomak/svg-turkiye-haritasi/', title='SVG Türkiye Haritası')
       | SVG Türkiye Haritası
     .xl-db.xl-fs18.xl-lh40.xl-mb24.xl-co-black-500
-      | Bu SVG Türkiye Haritası'nda 
+      | Bu SVG Türkiye Haritası'nda
       .xl-dib.xl-fw600 İstanbul Asya
-      |  ve 
+      |  ve
       .xl-dib.xl-fw600 Avrupa
-      |  ayrı 
+      |  ayrı
       .xl-dib.xl-fw600 Kıbrıs
-      | 'ta var hem de 
+      | 'ta var hem de
       .xl-dib.xl-fw600 Responsive
       |  :)
     .il-isimleri
@@ -18,12 +18,10 @@
 </template>
 
 <script>
-  import $ from 'jquery';
-
-  export default {
-    data() {
-      return {
-        svgTurkiyeHaritasi: `
+export default {
+  data() {
+    return {
+      svgTurkiyeHaritasi: `
           <svg version="1.1" id="svg-turkiye-haritasi" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1007.478 527.323" xml:space="preserve">
             <g id="turkiye">
               <g id="adana" data-plakakodu="01" data-alankodu="322" data-iladi="Adana">
@@ -289,77 +287,92 @@
             </g>
           </svg>
         `,
-      };
+    };
+  },
+  mounted() {
+    this.svgTurkiyeHaritasiFunc();
+  },
+  methods: {
+    /* eslint-disable
+       func-names,
+       no-undef,
+       vars-on-top,
+       no-var,
+       space-before-function-paren,
+       no-unused-vars,
+       prefer-arrow-callback,
+       consistent-return,
+       prefer-template,
+       eqeqeq,
+       space-before-blocks,
+       comma-spacing */
+    /* eslint dot-notation: ["error", { "allowPattern": "^[a-z]+$" }]*/
+    svgTurkiyeHaritasiFunc() {
+      const element = document.querySelector('#svg-turkiye-haritasi');
+      const info = document.querySelector('.il-isimleri');
+
+      element.addEventListener('mouseover', (event) => {
+        if (event.target.tagName === 'path') {
+          info.innerHTML = `<div>${event.target.parentNode.dataset['iladi']}</div>`;
+        }
+      });
+
+      element.addEventListener('mousemove', (event) => {
+        info.style.top = event.pageY + 25 + 'px';
+        info.style.left = event.pageX + 'px';
+      });
+
+      element.addEventListener('mouseout', () => {
+        info.innerHTML = '';
+      });
+
+      element.addEventListener('click', (event) => {
+        if (event.target.tagName === 'path') {
+          const parent = event.target.parentNode;
+          const id = parent.getAttribute('id');
+          if (id === 'guney-kibris') return;
+
+          window.location.href = (`#${id}-${parent.dataset['plakakodu']}`);
+        }
+      });
     },
-    mounted() {
-      this.svgTurkiyeHaritasiFunc();
-    },
-    methods: {
-      /* eslint-disable
-         func-names,
-         no-undef,
-         vars-on-top,
-         no-var,
-         space-before-function-paren,
-         no-unused-vars,
-         prefer-arrow-callback,
-         consistent-return,
-         prefer-template,
-         eqeqeq,
-         space-before-blocks,
-         comma-spacing */
-      svgTurkiyeHaritasiFunc() {
-        $('#svg-turkiye-haritasi path').hover(function() {
-          if ($(this).parent().attr('id') == 'guney-kibris') return false;
-          $('.il-isimleri').html('<div>' + $(this).parent().data('iladi') + '</div>');
-          $(this).on('mousemove', function(event) {
-            $('.il-isimleri').css('top', (event.pageY + 25));
-            $('.il-isimleri').css('left', event.pageX);
-          });
-        },function(){
-          $('.il-isimleri').html('');
-        });
-        $('#svg-turkiye-haritasi path').on('click', function(event) {
-          if ($(this).parent().attr('id') == 'guney-kibris') return false;
-          var ilid = $(this).parent().attr('id');
-          var iladi = $(this).parent().data('iladi');
-          var plakakodu = $(this).parent().data('plakakodu');
-          var alankodu = $(this).parent().data('alankodu');
-          window.location = '#' + ilid + '-' + plakakodu;
-        });
-      },
-    },
-  };
+  },
+};
 </script>
 
 <style lang="scss">
-  .svg-turkiye-haritasi {
-    max-width: 1140px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .svg-turkiye-haritasi svg {
-    width: 100%;
-    height: auto;
-  }
-  .il-isimleri {
-    position: absolute;
-    z-index: 2;
-  }
-  .il-isimleri div {
-    display: inline-block;
-    background: #1094F6;
-    color: #fff;
-    padding: 8px 16px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-  }
-  #svg-turkiye-haritasi path {
-    cursor: pointer;
-    fill: #222;
-  }
-  #svg-turkiye-haritasi path:hover {
-    fill: #1094F6;
-  }
+.svg-turkiye-haritasi {
+  max-width: 1140px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.svg-turkiye-haritasi svg {
+  width: 100%;
+  height: auto;
+}
+
+.il-isimleri {
+  position: absolute;
+  z-index: 2;
+}
+
+.il-isimleri div {
+  display: inline-block;
+  background: #1094F6;
+  color: #fff;
+  padding: 8px 16px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+#svg-turkiye-haritasi path {
+  cursor: pointer;
+  fill: #222;
+}
+
+#svg-turkiye-haritasi path:hover {
+  fill: #1094F6;
+}
 </style>
