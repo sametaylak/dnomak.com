@@ -40,12 +40,16 @@
     },
     created() {
       this.allTags();
-      this.AllTags = this.tags;
     },
     computed: {
       ...mapGetters('tags', [
         'tags',
       ]),
+    },
+    watch: {
+      tags() {
+        this.AllTags = this.tags;
+      },
     },
     methods: {
       ...mapActions('tags', [
