@@ -4,7 +4,7 @@ import { graph } from '@/graph';
 const allTags = graph.query(`{
   allTags {
     name
-    heroes {
+    heroes(orderBy: createdAt_DESC) {
       name
       title
       username
