@@ -9,6 +9,7 @@ globals:
   coffee: "Bize <strong>kahve</strong> ısmarlayarak destek olabilirsiniz."
   dnomaksStory: dnomak'ın Hikayesi
   socialMedia: Sosyal Medya
+  searchHero: Kahraman Ara
 
 mailchimp:
   id: 76e0132742
