@@ -9,6 +9,7 @@ globals:
   coffee: "You can support us by buying us a cup of <strong>coffee</strong>."
   dnomaksStory: dnomak's Story
   socialMedia: Social Media
+  searchHero: Search Hero
 
 mailchimp:
   id: 1ddadb165c

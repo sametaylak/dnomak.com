@@ -1,12 +1,15 @@
 <template lang="pug">
   div
     c-header
-    .xl-px16.xl-mt24
+    .wrap.xl-center.xl-ba-white.xl-bwb2.xl-bo-gray-200
+      .col.xl-8-12.lg-1-1
+        .xl-m40.md-m24
+          input(type='text', v-model='keyword', @input='searchInTags', :placeholder='$t("globals.searchHero")', class='xl-fs18 xl-1-1 xl-db xl-h56 xl-ba-white xl-bw2 xl-bo-gray-200 xl-br8 xl-brr0 xl-ffscp xl-pl16 lg-pl8 md-pl16 pl-co-gray-500')
+    .xl-px16
       .container
-        hero-search
         .wrap.xl-3.xl-left.xl-gutter-16.lg-2.md-1.md-gutter
-          .col(v-for='tag in tags')
-            .xl-ffscp.xl-mb16.xl-fs24.xl-dib.xl-py8.xl-px16.xl-br8(:class='tag.name') {{ tag.name }}
+          .col(v-for='tag in AllTags' v-if='tag.heroes.length')
+            .xl-mt24.xl-ffscp.xl-mb16.xl-fs24.xl-dib.xl-py8.xl-px16.xl-br8(:class='tag.name') {{ tag.name }}
             .xl-pr.xl-mb8
               .shadow
               .scroll
@@ -26,10 +29,18 @@
 
 <script>
   import { mapActions, mapGetters } from 'vuex';
+  import { cloneDeep, lowerCase } from 'lodash';
 
   export default {
+    data() {
+      return {
+        AllTags: null,
+        keyword: null,
+      };
+    },
     created() {
       this.allTags();
+      this.AllTags = this.tags;
     },
     computed: {
       ...mapGetters('tags', [
@@ -40,6 +51,23 @@
       ...mapActions('tags', [
         'allTags',
       ]),
+      searchInTags() {
+        const keyword = lowerCase(this.keyword);
+        let filteredTags = [];
+        if (keyword) {
+          this.tags.forEach((tag) => {
+            const tempTag = cloneDeep(tag);
+            tempTag.heroes = tempTag.heroes.filter(hero =>
+              lowerCase(hero.name).includes(keyword) || lowerCase(hero.title).includes(keyword),
+            );
+            filteredTags.push(tempTag);
+          });
+        } else {
+          filteredTags = this.tags;
+        }
+
+        this.AllTags = filteredTags;
+      },
     },
   };
 </script>
@@ -61,7 +89,7 @@
     position: absolute;
     z-index: 2;
     pointer-events: none;
-    rigth: 0;
+    right: 0;
     bottom: 0;
     width: 100%;
     height: 24px;

@@ -6,6 +6,14 @@
 
 @media (max-width: 768px) {
   // md
+  
+  // TODO: Vue uzantılı dosya içinde yazılan css her zaman öncelikli. Bu durumun kontrol edilmesi gerekiyor.
+  .scroll {
+    max-height: 100% !important;
+  }
+  .shadow {
+    display: none;
+  }
 }
 
 @media (max-width: 667px) {
