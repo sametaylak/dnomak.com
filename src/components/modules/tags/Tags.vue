@@ -14,7 +14,7 @@
               .shadow
               .scroll
                 div(v-for='hero in tag.heroes')
-                  router-link.xl-ba-white.xl-bo-gray-200.xl-co-black-500.link.xl-bw2.xl-db.xl-oh.xl-cp.xl-tal.xl-br8.xl-bw2.xl-p8.xl-mb16(:to='{ name: "hero", params: { heroUsername: hero.username, questionId: 1 }}')
+                  router-link.xl-ba-white.xl-bo-gray-200.xl-co-black-500.link.xl-bw2.xl-db.xl-oh.xl-cp.xl-tal.xl-br8.xl-bw2.xl-p8.xl-mb16(:to='{ name: "hero", params: { heroUsername: hero.username}}')
                     .wrap.xl-auto.xl-middle.xl-table
                       .col(style='width: 80px;')
                         .avatar--tags.xl-br8(:style="{ 'background-image': 'url(/static/img/heroes/' + hero.username + '.jpg)' }")

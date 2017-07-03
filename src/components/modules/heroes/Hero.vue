@@ -41,7 +41,7 @@
               .xl-ba-white.xl-fs14.xl-lh20.xl-brb8.xl-bo-gray-200.xl-bw2.xl-oh
                 .xl-ba-gray-100
                   span(v-for='(time, index) in times')
-                    a.xl-db.xl-py8.xl-px16.ho-ba-gray-100.ho-co-black-500.ho-bo-gray-200.xl-ba-white.xl-co-black-500.xl-bwt1.xl-bo-gray-200.xl-cp(@click.stop.prevent='changeQuestionTime(time.second, index + 1)', :class="{'active': time.second === questionTime}")
+                    a.xl-db.xl-py8.xl-px16.ho-ba-gray-100.ho-co-black-500.ho-bo-gray-200.xl-ba-white.xl-co-black-500.xl-bwt1.xl-bo-gray-200.xl-cp(@click.stop.prevent='changeQuestionTime(time.second)', :class="{'active': time.second === questionTime}")
                       span.xl-1-1.xl-db.xl-wsnw.xl-oh.xl-toe(v-if='$t("lang") === "tr"') {{ time.question.name }}
                       span.xl-1-1.xl-db.xl-wsnw.xl-oh.xl-toe(v-if='$t("lang") === "en"') {{ time.question.nameEnglish }}
             subscribe-form
@@ -107,6 +107,7 @@
         const playerSecond = parseInt(this.player.j.currentTime, 10);
         this.times.forEach((time) => {
           if (playerSecond === time.second) {
+            window.history.pushState(null, 'dnomak', `/${this.hero.username}/${time.id}`);
             this.questionTime = time.second;
           }
         });
@@ -167,14 +168,13 @@
       },
       ready(player) {
         this.player = player;
-        if (this.firstLoading) {
-          const questId = this.$route.params.questionId;
-          this.changeQuestionTime(this.timeByQuestionId(questId), questId);
+        const questId = this.$route.params.questionId;
+        if (this.firstLoading && questId) {
+          this.changeQuestionTime(this.timeByQuestionId(questId).second);
           this.firstLoading = false;
         }
       },
-      changeQuestionTime(questionTime, index) {
-        window.history.pushState(null, 'dnomak', `/${this.hero.username}/${index}`);
+      changeQuestionTime(questionTime) {
         this.videoLoading = true;
         setTimeout(() => {
           this.questionTime = parseInt(questionTime, 10);

@@ -4,6 +4,7 @@ import { sortBy } from 'lodash';
 
 const allTimes = graph.query(`($username: String!) {
   allTimes(filter: {hero: {username: $username}}) {
+    id
     second
     hero {
       username
@@ -22,7 +23,9 @@ export default store({
   },
   getters: {
     times: state => sortBy(state.times, ['second']),
-    timeByQuestionId: state => questionId => state.times[questionId - 1].second,
+    timeByQuestionId: state => questionId => state.times.filter(
+      times => times.id === questionId,
+    )[0],
   },
   actions: {
     async allTimes({ commit }, username) {
