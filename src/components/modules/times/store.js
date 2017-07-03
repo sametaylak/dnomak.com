@@ -22,9 +22,7 @@ export default store({
   },
   getters: {
     times: state => sortBy(state.times, ['second']),
-    timeByQuestionId: state => questionId => state.times.filter(
-      times => times.id === questionId,
-    )[0],
+    timeByQuestionId: state => questionId => state.times[questionId - 1].second,
   },
   actions: {
     async allTimes({ commit }, username) {

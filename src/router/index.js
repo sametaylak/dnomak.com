@@ -32,6 +32,9 @@ export default new Router({
       path: '/:heroUsername',
       name: 'hero',
       component: Hero,
+      children: [
+        { path: ':questionId', component: Hero },
+      ],
     },
     { path: '*', component: NotFound },
   ],

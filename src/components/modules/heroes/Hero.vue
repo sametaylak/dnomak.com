@@ -40,8 +40,8 @@
                 | {{ $t("globals.questions") }}
               .xl-ba-white.xl-fs14.xl-lh20.xl-brb8.xl-bo-gray-200.xl-bw2.xl-oh
                 .xl-ba-gray-100
-                  span(v-for='time in times')
-                    a.xl-db.xl-py8.xl-px16.ho-ba-gray-100.ho-co-black-500.ho-bo-gray-200.xl-ba-white.xl-co-black-500.xl-bwt1.xl-bo-gray-200.xl-cp(@click.stop.prevent='changeQuestionTime(time.second)', :class="{'active': time.second === questionTime}")
+                  span(v-for='(time, index) in times')
+                    a.xl-db.xl-py8.xl-px16.ho-ba-gray-100.ho-co-black-500.ho-bo-gray-200.xl-ba-white.xl-co-black-500.xl-bwt1.xl-bo-gray-200.xl-cp(@click.stop.prevent='changeQuestionTime(time.second, index + 1)', :class="{'active': time.second === questionTime}")
                       span.xl-1-1.xl-db.xl-wsnw.xl-oh.xl-toe(v-if='$t("lang") === "tr"') {{ time.question.name }}
                       span.xl-1-1.xl-db.xl-wsnw.xl-oh.xl-toe(v-if='$t("lang") === "en"') {{ time.question.nameEnglish }}
             subscribe-form
@@ -66,6 +66,7 @@
       return {
         hero: [],
         questionTime: 0,
+        firstLoading: true,
         player: {
           j: {
             currentTime: 0,
@@ -126,6 +127,7 @@
         'heroes',
       ]),
       ...mapGetters('times', [
+        'timeByQuestionId',
         'times',
       ]),
       ...mapGetters('links', [
@@ -165,8 +167,14 @@
       },
       ready(player) {
         this.player = player;
+        if (this.firstLoading) {
+          const questId = this.$route.params.questionId;
+          this.changeQuestionTime(this.timeByQuestionId(questId), questId);
+          this.firstLoading = false;
+        }
       },
-      changeQuestionTime(questionTime) {
+      changeQuestionTime(questionTime, index) {
+        window.history.pushState(null, 'dnomak', `/${this.hero.username}/${index}`);
         this.videoLoading = true;
         setTimeout(() => {
           this.questionTime = parseInt(questionTime, 10);
